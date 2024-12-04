@@ -4,14 +4,6 @@ from scipy.optimize import linprog, minimize
 
 class BestResponseCalculator:
     def __init__(self, player_utility, strategy_space, num_firms=2, repeated=False):
-        """
-        Parameters:
-        - player_utility (function): A function representing the utility of the player. It should accept the player's
-          strategy and the opponent's strategy as arguments.
-        - strategy_space (array-like): A list or array representing the available strategies for the player.
-        - num_firms (int): Number of firms in the market (default is 2).
-        - repeated (bool): Whether the game is infinitely repeated (default is False).
-        """
         self.player_utility = player_utility
         self.strategy_space = strategy_space
         self.num_firms = num_firms
@@ -61,15 +53,6 @@ class BestResponseCalculator:
             return None
 
     def nash_equilibrium(self, utility_matrix):
-        """
-        Calculate the Nash equilibrium for a two-player game using linear programming.
-
-        Parameters:
-        - utility_matrix (2D array): A matrix representing the payoffs for Player 1 for each combination of strategies.
-
-        Returns:
-        - nash_strategy (array): The mixed strategy Nash equilibrium for Player 1.
-        """
         num_strategies = len(utility_matrix)
         c = [-1] * num_strategies
         A_ub = -np.transpose(utility_matrix)
