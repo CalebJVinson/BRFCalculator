@@ -154,7 +154,7 @@ print(f"The best response for Firm 1, given that Firm 2 produces {opponent_quant
 
 calculator.plot_best_response(opponent_quantity)
 
-
+# multi-firm cournot
 num_firms = 3
 equilibrium_quantities = calculator.multi_firm_cournot(num_firms)
 print(f"Equilibrium quantities for {num_firms} firms: {equilibrium_quantities}")
@@ -162,11 +162,12 @@ print(f"Equilibrium quantities for {num_firms} firms: {equilibrium_quantities}")
 
 calculator.plot_cournot_3d()
 
-
+# Nash Equilibrium Example
 utility_matrix = [[3, 1], [0, 2]]
 nash_strategy = calculator.nash_equilibrium(utility_matrix)
 print(f"The mixed strategy Nash equilibrium for Player 1 is: {nash_strategy}")
 
+# Examply Bayesian Nash
 def bayesian_utility(player_type, opponent_type, player_strategy, opponent_strategy):
     return (100 - player_strategy - opponent_strategy) * player_strategy - 20 * player_strategy
 
