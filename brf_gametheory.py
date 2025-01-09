@@ -23,8 +23,8 @@ class BestResponseCalculator:
         return best_strategy
 
     def cournot_best_response(self, opponent_quantity, price_intercept=100, cost=20):
-        def utility(q1, q2):
-            price = price_intercept - (q1 + q2)
+        def utility(q1):
+            price = price_intercept - (q1 + opponent_quantity)
             profit = (price - cost) * q1
             return profit
 
